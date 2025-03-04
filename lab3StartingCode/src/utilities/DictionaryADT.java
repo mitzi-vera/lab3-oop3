@@ -40,8 +40,16 @@ public interface DictionaryADT<K,V>
 	void remove();
 	
 	/**
-	 * Please update the comments and the method parameters and exceptions as needed */
-	void update();
+     * Updates the value associated with a given key in the dictionary.
+     * Pre-condition: The key must exist in the dictionary.
+     * Post-condition: The value associated with the given key is updated.
+     *
+     * @param key   The key whose value is to be updated.
+     * @param value The new value to associate with the key.
+     * @throws KeyNotFoundException     If the key does not exist in the dictionary.
+     * @throws IllegalArgumentException If the key or value is null.
+     */
+    void update(K key, V value) throws KeyNotFoundException, IllegalArgumentException;
 	
 	/**
 	 * Looks up the value associated with a specific key in the dictionary.
