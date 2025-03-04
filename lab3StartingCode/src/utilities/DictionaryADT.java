@@ -44,6 +44,14 @@ public interface DictionaryADT<K,V>
 	void update();
 	
 	/**
-	 * Please update the comments and the method parameters and exceptions as needed */
-	void lookup();
+	 * Looks up the value associated with a specific key in the dictionary.
+	 * Pre-condition: The key must exist in the dictionary.
+	 * Post-condition: Returns the value associated with the given key, if it exists.
+	 * 
+	 * @param key The key whose associated value is to be returned.
+	 * @return The value associated with the given key.
+	 * @throws KeyNotFoundException If the key does not exist in the dictionary.
+	 * @throws IllegalArgumentException If the key is null.
+	 */
+	void lookup(K key) throws KeyNotFoundException, IllegalArgumentException;
 }
