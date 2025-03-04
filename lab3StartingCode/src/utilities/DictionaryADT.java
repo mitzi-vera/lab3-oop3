@@ -28,7 +28,15 @@ public interface DictionaryADT<K,V>
 	
 	
 	/**
-	 * Please update the comments and the method parameters and exceptions as needed */
+	 * Removes a key-value pair from the dictionary based on the given key.
+     * Pre-condition: The key must exist in the dictionary.
+     * Post-condition: The key-value pair is removed, and the dictionary size decreases.
+     *
+     * @param key The key of the pair to be removed.
+     * @return The value associated with the removed key.
+     * @throws KeyNotFoundException If the key does not exist in the dictionary.
+     * @throws IllegalArgumentException If the key is null.
+	 */
 	void remove();
 	
 	/**
