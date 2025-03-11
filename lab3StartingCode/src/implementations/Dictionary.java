@@ -23,14 +23,13 @@ public class Dictionary<K, V> implements DictionaryADT<K, V> {
     public V remove(K key) {
         int index = keys.indexOf(key);
         if (index != -1) {
-            V removedValue = values.get(index); // Store the value before removal
+            V removedValue = values.get(index); // Store value before removal
             keys.remove(index);
             values.remove(index);
-            return removedValue; // Return the removed value
+            return removedValue; // Ensure the correct value is returned
         }
         return null; // Key not found
     }
-
 
 
 	@Override
@@ -41,11 +40,15 @@ public class Dictionary<K, V> implements DictionaryADT<K, V> {
 	}
 
 	@Override
-	public boolean insert(K key, V value) throws DuplicateKeyException
-	{
-		// TODO Auto-generated method stub
-		return false;
+	public boolean insert(K key, V value) throws DuplicateKeyException {
+	    if (keys.contains(key)) {
+	        throw new DuplicateKeyException("Key already exists in the dictionary.");
+	    }
+	    keys.add(key);
+	    values.add(value);
+	    return true;
 	}
+
 
 	@Override
 	public boolean update(K key, V value)
