@@ -60,10 +60,17 @@ public class Dictionary<K, V> implements DictionaryADT<K, V> {
         return false; // Key not found
     }
 
-	@Override
-	public V lookup(K key)
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public V lookup(K key) {
+        if (key == null) {
+            return null; // Handle null key case
+        }
+    
+        int index = keys.indexOf(key); // Find the index of the key in the keys list
+        if (index != -1) {
+            return values.get(index); // Return the corresponding value from the values list
+        }
+        return null; // Key not found
+    }
+    
 }
