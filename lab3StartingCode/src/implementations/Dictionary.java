@@ -35,8 +35,8 @@ public class Dictionary<K, V> implements DictionaryADT<K, V> {
 	@Override
 	public void create(int size)
 	{
-		// TODO Auto-generated method stub
-		
+	    keys = new ArrayList<>(size);
+	    values = new ArrayList<>(size);
 	}
 
 	@Override
