@@ -51,11 +51,14 @@ public class Dictionary<K, V> implements DictionaryADT<K, V> {
 
 
 	@Override
-	public boolean update(K key, V value)
-	{
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean update(K key, V value) {
+        int index = keys.indexOf(key);
+        if (index != -1) {
+            values.set(index, value); // Update value at the found index
+            return true;
+        }
+        return false; // Key not found
+    }
 
 	@Override
 	public V lookup(K key)
